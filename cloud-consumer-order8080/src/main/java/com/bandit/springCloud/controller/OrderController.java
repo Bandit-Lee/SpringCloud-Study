@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
  * @createTime 2022/4/12 11:59
  */
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/consumer")
 @Slf4j
 public class OrderController {
 

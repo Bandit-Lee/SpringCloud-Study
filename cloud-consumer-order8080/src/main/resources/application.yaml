@@ -6,3 +6,11 @@ spring:
     name: cloud-consumer-order
 
 
+eureka:
+  client:
+    #表示注册自己进EurekaServer
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息。单点无所谓，集群必须要true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/

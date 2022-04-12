@@ -12,6 +12,8 @@
         <module>cloud-provider-payment8001</module>
         <module>cloud-consumer-order8080</module>
         <module>cloud-commons-api</module>
+        <module>cloud-eureka-server7001</module>
+        <module>cloud-eureka-server7002</module>
     </modules>
 
     <properties>
@@ -24,6 +26,7 @@
         <junit.version>4.13.2</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
         <fastjson.version>1.2.78</fastjson.version>
+        <jackson.version>2.13.1</jackson.version>
         <springboot.version>2.6.1</springboot.version>
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.component.version>3.1.1</spring.cloud.component.version>
@@ -55,10 +58,15 @@
                 <artifactId>spring-cloud-starter-config</artifactId>
                 <version>${spring.cloud.component.version}</version>
             </dependency>
-            <!--netflix-eureka-client-->
+            <!--netflix-eureka-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring.cloud.component.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
                 <version>${spring.cloud.component.version}</version>
             </dependency>
             <!--mysql-->
@@ -114,10 +122,27 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <!--fastjson-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <!--jackson-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

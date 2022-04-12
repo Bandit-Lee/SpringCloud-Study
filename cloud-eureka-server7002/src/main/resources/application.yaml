@@ -1,0 +1,18 @@
+server:
+  port: 7002
+
+eureka:
+  instance:
+    #在hosts文件中做了映射 127.0.0.1 eureka7002.com
+    hostname: eureka7002.com
+  client:
+    #false 表示不注册自己
+    registerWithEureka: false
+    #false 表示自己端就是注册中心
+    fetchRegistry: false
+    serviceUrl:
+      #设置Eureka Server交互的地址，查询服务和注册服务都是这个地址
+      # 单机环境下：defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ 本机就够了
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群需要注册另一台server的地址
+      defaultZone: http://eureka7001.com:7001/eureka/
