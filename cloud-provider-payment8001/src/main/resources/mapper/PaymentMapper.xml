@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bandit.springCloud.dao.PaymentDao">
+
+    <resultMap id="BaseResult" type="Payment">
+        <id column="id" property="id"/>
+        <id column="serial" property="serial"/>
+    </resultMap>
+
+    <insert id="insertPayment" parameterType="Payment" keyProperty="id" useGeneratedKeys="true">
+        insert into payment(serial)
+        VALUES(#{serial})
+    </insert>
+
+    <select id="selectPaymentList" resultMap="BaseResult" parameterType="Payment">
+        select * from payment
+        <where>
+            <if test="id != null and id != 0">
+                id = #{id}
+            </if>
+            <if test="serial != null">
+                AND serial = #{serial}
+            </if>
+        </where>
+    </select>
+</mapper>
