@@ -13,8 +13,10 @@
         <module name="cloud-eureka-server7001" />
         <module name="cloud-provider-payment8001" />
         <module name="cloud-eureka-server7002" />
+        <module name="cloud-provider-payment8006" />
         <module name="cloud-commons-api" />
         <module name="cloud-consumer-order8081" />
+        <module name="cloud-consumer-order8082" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
