@@ -1,0 +1,12 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: cloud-provider-payment
+  cloud:
+    zookeeper:
+      enabled: true
+      connect-string: localhost:2281
+      discovery:
+        root: /spring-cloud/service

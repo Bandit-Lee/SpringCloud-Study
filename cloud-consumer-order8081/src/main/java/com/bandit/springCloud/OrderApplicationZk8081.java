@@ -2,16 +2,16 @@ package com.bandit.springCloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author Bandit
- * @createTime 2022/4/12 9:07
+ * @createTime 2022/4/13 12:43
  */
 @SpringBootApplication
-@EnableEurekaClient
-public class PaymentApplication {
+@EnableDiscoveryClient
+public class OrderApplicationZk8081 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentApplication.class, args);
+        SpringApplication.run(OrderApplicationZk8081.class, args);
     }
 }

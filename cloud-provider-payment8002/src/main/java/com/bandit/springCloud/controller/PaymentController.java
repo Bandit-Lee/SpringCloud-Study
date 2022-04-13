@@ -6,6 +6,8 @@ import com.bandit.springCloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +22,13 @@ import java.util.List;
 public class PaymentController {
 
     @Autowired
-    private PaymentService paymentService;
+    PaymentService paymentService;
 
     @Value("${server.port}")
     private String serverPort;
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @PostMapping("/insert")
     public ResponseResult insertPayment(@RequestBody Payment payment) {
@@ -49,5 +54,15 @@ public class PaymentController {
             log.info("查询成功");
             return new ResponseResult(200, "查询成功", paymentList);
         }
+    }
+
+    @GetMapping("/info")
+    public ResponseResult getServiceInfo() {
+        List<String> services = discoveryClient.getServices();
+        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CLOUD-PROVIDER-PAYMENT");
+        services.forEach(log::info);
+        serviceInstances.forEach(serviceInstance -> log.info(serviceInstance.toString()));
+
+        return new ResponseResult(200, "success", services);
     }
 }
