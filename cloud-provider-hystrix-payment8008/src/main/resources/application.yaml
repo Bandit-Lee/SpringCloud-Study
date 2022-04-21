@@ -1,0 +1,20 @@
+server:
+  port: 8008
+
+spring:
+  application:
+    name: cloud-provider-payment-hystrix
+  devtools:
+    restart:
+      enabled: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+

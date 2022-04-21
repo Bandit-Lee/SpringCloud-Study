@@ -11,6 +11,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Bandit
@@ -64,5 +65,15 @@ public class PaymentController {
         serviceInstances.forEach(serviceInstance -> log.info(serviceInstance.toString()));
 
         return new ResponseResult(200, "success", services);
+    }
+
+    @GetMapping("/feign/timeout")
+    public ResponseResult paymentTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new ResponseResult(200,"超时test完成");
     }
 }

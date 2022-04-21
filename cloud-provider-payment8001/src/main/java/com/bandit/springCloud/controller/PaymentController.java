@@ -55,7 +55,7 @@ public class PaymentController {
     @GetMapping("/feign/timeout")
     public ResponseResult paymentTimeout() {
         try {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

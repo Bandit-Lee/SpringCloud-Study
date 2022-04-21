@@ -12,3 +12,15 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+logging:
+  level:
+    com.bandit.springCloud.service.PaymentService: debug

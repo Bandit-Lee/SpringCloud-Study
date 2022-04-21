@@ -20,6 +20,7 @@
         <module>cloud-provider-payment8006</module>
         <module>cloud-consumer-order8082</module>
         <module>cloud-consumer-order8083</module>
+        <module>cloud-provider-hystrix-payment8008</module>
     </modules>
 
     <properties>
@@ -34,6 +35,7 @@
         <fastjson.version>1.2.78</fastjson.version>
         <jackson.version>2.13.1</jackson.version>
         <ribbon.version>2.2.10.RELEASE</ribbon.version>
+        <hystrix.version>2.2.10.RELEASE</hystrix.version>
         <springboot.version>2.6.1</springboot.version>
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <spring.cloud.component.version>3.1.1</spring.cloud.component.version>
@@ -93,6 +95,17 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
                 <version>${ribbon.version}</version>
+            </dependency>
+            <!--hystrix-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-hystrix</artifactId>
+                <version>${hystrix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-javanica</artifactId>
+                <version>1.5.12</version>
             </dependency>
             <!--openFeign-->
             <dependency>
