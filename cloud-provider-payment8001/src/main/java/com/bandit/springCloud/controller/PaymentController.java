@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Bandit
@@ -49,5 +50,15 @@ public class PaymentController {
             log.info("查询成功");
             return new ResponseResult(200, "查询成功", paymentList);
         }
+    }
+
+    @GetMapping("/feign/timeout")
+    public ResponseResult paymentTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new ResponseResult(200,"超时test完成");
     }
 }
