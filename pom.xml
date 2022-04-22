@@ -21,6 +21,7 @@
         <module>cloud-consumer-order8082</module>
         <module>cloud-consumer-order8083</module>
         <module>cloud-provider-hystrix-payment8008</module>
+        <module>cloud-consumer-hystrix-order8084</module>
     </modules>
 
     <properties>
