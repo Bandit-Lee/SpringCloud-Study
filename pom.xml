@@ -22,6 +22,8 @@
         <module>cloud-consumer-order8083</module>
         <module>cloud-provider-hystrix-payment8008</module>
         <module>cloud-consumer-hystrix-order8084</module>
+        <module>cloud-monitor-hystrix9001</module>
+        <module>cloud-gateway-gateway9527</module>
     </modules>
 
     <properties>
@@ -86,6 +88,7 @@
                 <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
                 <version>${spring.cloud.component.version}</version>
             </dependency>
+            <!--consul-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-consul-discovery</artifactId>
@@ -112,6 +115,12 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${spring.cloud.component.version}</version>
+            </dependency>
+            <!--gateway-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${spring.cloud.component.version}</version>
             </dependency>
             <!--mysql-->
