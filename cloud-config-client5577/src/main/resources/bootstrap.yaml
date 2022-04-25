@@ -1,0 +1,31 @@
+server:
+  port: 5577
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: main  # 分支
+      name: config # 配置文件名称前缀 config-xxx
+      profile: dev # 配置文件名称后缀 xxx-dev
+      uri: http://localhost:5566 # 配置中心地址
+  config:
+    import: optional:configserver:http://localhost:5566
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,36 @@
+server:
+  port: 5566
+
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Bandit-Lee/springcloud-config.git
+          skipSslValidation: true
+          search-paths:
+            - springcloud-config
+      label: main
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+##rabbitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: busrefresh
+
+# 配置中心还需要 cmd 进行通知
+# curl -X POST "http://localhost:5566/actuator/busrefresh" 通知所有client
+# curl -X POST "http://localhost:5566/actuator/busrefresh/{destination}" 通知指定client 定点通知 如 config-client:5577
