@@ -27,6 +27,9 @@
         <module>cloud-config-center5566</module>
         <module>cloud-config-client5577</module>
         <module>cloud-config-client5588</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-consumer8802</module>
+        <module>cloud-stream-rabbitmq-consumer8803</module>
     </modules>
 
     <properties>
@@ -84,6 +87,17 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bus-amqp</artifactId>
                 <version>${spring.cloud.component.lower.version}</version>
+            </dependency>
+            <!--spring-cloud-starter-stream-rabbit-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+                <version>${spring.cloud.component.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                <version>${spring.cloud.component.version}</version>
             </dependency>
             <!--spring-cloud-bootstrap-->
             <dependency>
