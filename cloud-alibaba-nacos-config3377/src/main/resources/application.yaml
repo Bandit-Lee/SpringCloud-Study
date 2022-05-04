@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev
+
+#通常不写死，而是用service控制台copy一个启动参数设置为 -Dspring.profiles.active=<profile>

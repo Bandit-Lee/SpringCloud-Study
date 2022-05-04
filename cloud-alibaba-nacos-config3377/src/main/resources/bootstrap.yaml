@@ -1,0 +1,23 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    # 这个name需要和nacos里的一样才能匹配
+    name: nacos-config
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        refresh:
+          enabled: true
+        namespace: 6d2c8423-8e91-4dec-901d-491cd2951a2a # bandit namespace的id
+        group: GROUP_A
+      discovery:
+        server-addr: localhost:8848
+
+
+# 加载配置为：${spring.application.name}-${profile}.${file-extension:properties/yaml}
+# profile可以选择环境如 dev/prod/test等等 用spring.profiles.active来指定
